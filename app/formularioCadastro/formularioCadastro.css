@@ -1,0 +1,115 @@
+* {
+  font-family: 'Roboto', sans-serif;
+}
+/* Container principal para centralizar tudo */
+.pageContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100vh;
+  background-color: #f4f4f9;
+  padding-top: 1rem; /* Espaçamento no topo */
+}
+
+/* Estilos para a imagem do logo */
+.logoImage {
+  width: 220px; /* Ajuste o tamanho conforme necessário */
+  margin-bottom: 0.5rem; /* Espaço entre a logo e o formulário */
+}
+
+/* Contêiner do formulário de cadastro ou login */
+.cadastroContainer, .loginContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f4f4f9;
+}
+
+.form {
+  width: 100%;
+  max-width: 400px;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.label {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.inputSenha {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.inputSenha input {
+  flex: 1;
+  padding: 12px;
+  margin-bottom: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.olho {
+  margin-left: -2rem;
+  cursor: pointer;
+  color: #aaa;
+}
+
+/* Botões */
+.cadastrarButton, .entrarButton {
+  width: 100%;
+  padding: 12px;
+  background-color: #4caf50;
+  color: white;
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: background-color 0.3s;
+}
+
+.cadastrarButton:hover, .entrarButton:hover {
+  background-color: #43a047;
+}
+
+/* Links de navegação */
+.link {
+  font-size: 0.9rem;
+  color: #4caf50;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  margin-top: 0.5rem;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+.label2 {
+  font-size: 1rem;
+  color: #333;
+  margin-top: 0.5rem;  /* Espaço superior */
+  text-align: center;  /* Centraliza o texto */
+  display: block;      /* Garante que o texto ocupe o espaço inteiro */
+  width: 100%;         /* Garante que ocupe toda a largura disponível */
+}
+

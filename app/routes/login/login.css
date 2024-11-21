@@ -1,0 +1,87 @@
+body{
+    overflow: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.main{
+    margin-top: -8px;
+    margin-left: -8px;
+    display: flex;
+    align-items: flex-start;
+    overflow: hidden;
+    height: 100vh;
+    position: relative;
+}
+
+.btn-voltar{
+    margin-top: 1%;
+    margin-left: 1%;
+    text-decoration: none;
+    border: 1px solid black;
+    color: black;
+    padding: 10px;
+    max-height: 20vh;
+    max-width: 50vw;
+    border-radius: 5px;
+    transition: .5s;
+}
+.btn-voltar:hover{
+    background-color:   #079C0D;
+    ;
+    color: white;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.322);
+}
+
+h1{
+    position: fixed;
+    right: 0;
+    margin-right: 20px;
+}
+
+.form{
+    margin: auto;
+    border: 1px solid rgba(0, 0, 0, 0.192);
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.363);
+    padding: 50px;
+    border-radius: 20px;
+}
+
+.button-form{
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    top: 0;
+    width: 80%;
+    margin: 10px auto;
+    margin-top: -20px;
+    margin-bottom: 20px;
+}
+
+.selecionado{
+    font-size: 20px;
+    background-color: white;
+    border: none;
+    text-decoration: underline 2px grey;
+    padding: 5px;
+    border-radius: 2px;
+    cursor: pointer;
+    width: 500%;
+}
+
+.botao-form{
+    font-size: 20px;
+    background-color: white;
+    border: none;
+    padding: 5px;
+    border-radius: 2px;
+    cursor: pointer;
+    width: 500%;
+    position: sticky;
+    top: 0;
+    transition: 0.7s;
+    border: none;
+    text-decoration: underline 2px rgba(128, 128, 128, 0);
+}
+.botao-form:hover{
+    text-decoration: underline 2px grey;
+}

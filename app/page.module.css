@@ -1,0 +1,144 @@
+.Home {
+  max-width: 100%;
+  max-height: 100%;
+  text-align: center;
+  flex-direction: column;
+  display: flex;
+  justify-content: space-between;
+  overflow-x: hidden;
+  align-items: center;
+}
+
+.header {
+  position: relative;  /* Para o posicionamento absoluto da imagem */
+  width: 100%;        /* Para ocupar toda a largura */
+  height: 300px;      /* Defina a altura desejada */
+  overflow: hidden;   /* Oculta qualquer parte da imagem que ultrapasse os limites */
+}
+
+.headerImageContainer {
+  position: relative;  /* Para o posicionamento da imagem e do texto */
+  width: 100%;        /* O container deve ocupar toda a largura */
+  height: 100%;       /* O container deve ocupar toda a altura */
+}
+
+.headerImage {
+  object-fit: cover;  /* Garante que a imagem preencha o espaço */
+}
+
+.logoContainer {
+  position: absolute;  /* Permite que a logo flutue sobre a imagem */
+  top: 20px;          /* Ajuste a distância do topo conforme necessário */
+  left: 50%;          /* Centraliza horizontalmente */
+  transform: translateX(-50%); /* Move a logo para a esquerda em 50% da largura dela */
+  z-index: 10;       /* Coloca a logo acima da imagem */
+}
+
+.headerText {
+  position: absolute;   /* Para posicionar o texto sobre a imagem */
+  top: 60%;            /* Ajuste conforme necessário para ficar abaixo da logo */
+  left: 50%;           /* Centraliza horizontalmente */
+  transform: translate(-50%, -50%); /* Move o texto para centralizá-lo */
+  color: white;        /* Cor do texto */
+  font-size: 36px;     /* Tamanho do texto */
+  text-align: center;  /* Centraliza o texto */
+}
+
+
+
+.acessoLogin {
+  width: auto;
+  display: flex;
+  align-items: center;
+  margin-left: auto; /* Posiciona à direita */
+  margin-right: 1rem; /* Ajuste de margem */
+  
+}
+
+.logoContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Duas colunas */
+  grid-template-rows: 1fr 1fr; /* Duas linhas */
+  gap: 20px; /* Espaçamento entre os quadrantes */
+  width: 80%; /* Ajuste o tamanho conforme necessário */
+  margin: 20px auto;
+}
+
+.quadrante {
+  background-color: #f4f4f4;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.ParagrafoContainer {
+  max-width: 90%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #089016;
+  font-family: Inter, sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.Paragrafo {
+  text-align: justify;
+  position: relative;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.rodape {
+  margin-top: 50px;
+}
+.tituloVerde {
+  color: #089016; /* Cor verde para os títulos */
+}
+
+.textoVerde {
+  color: #089016; /* Cor verde para o conteúdo */
+}
+.transparentText {
+  position: absolute;
+  top: 150px; /* Abaixo da logo */
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.5); /* Texto branco com transparência */
+  font-size: 24px;
+  font-weight: bold;
+}
+.cooperAgri {
+  font-size: 36px; /* Tamanho maior para "CooperAgri" */
+  font-weight: bold; /* Deixa em negrito */
+  color: rgba(255, 255, 255, 0.9); /* Ajuste a cor conforme necessário */
+}
+
+.subText {
+  display: block; /* Força a frase "Tec Logística para Agricultura Familiar" a ficar em uma linha separada */
+  font-size: 16px; /* Tamanho menor para o subtítulo */
+  color: rgba(255, 255, 255, 0.7); /* Cor mais transparente */
+  margin-top: 5px; /* Espaçamento entre os textos */
+}
+.logoTextContainer {
+  position: absolute;
+  top: 10px; /* Ajuste conforme necessário */
+  left: 10%;
+  transform: translateX(-50%);
+  width: 500px; /* Ajuste a largura conforme necessário */
+  height: 200px; 
+}
+.logoContainer {
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+}

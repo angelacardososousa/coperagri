@@ -1,0 +1,106 @@
+* {
+  font-family: 'Roboto', sans-serif;
+}
+.loginContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f4f4f9;
+}
+
+.boasVindas {
+  font-size: 2rem;
+  color: #4caf50;
+  margin-bottom: 0.5rem;
+}
+
+.form {
+  width: 100%;
+  max-width: 400px;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0px 4px 12px rgba(191, 190, 190, 0.1);
+}
+
+.label {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 0.5rem; 
+  border: 1px solid #c4c1c1;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.inputSenha {
+  display: flex;
+  align-items: center;
+  width: 100%; /* Garante que a senha tenha o mesmo tamanho */
+}
+
+.inputSenha input {
+  flex: 1; /* Faz o input ocupar todo o espaço disponível */
+  padding: 12px; /* Mantém o mesmo padding */
+  margin-bottom: 0.5rem; /* Mantém o mesmo espaço inferior */
+  border: 1px solid #c4c1c1;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.olho {
+  margin-left: -2rem;
+  cursor: pointer;
+  color: #aaa;
+}
+
+.entrarButton {
+  width: 100%;
+  padding: 12px;
+  background-color: #4caf50;
+  color: white;
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 0.5rem;
+  transition: background-color 0.3s;
+}
+
+.entrarButton:hover {
+  background-color: #43a047;
+}
+
+.link {
+  font-size: 0.9rem;
+  color: #4caf50;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+.pageContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100vh;
+  background-color: #f4f4f9;
+  padding-top: 0rem; /* Espaçamento no topo */
+}
+
+.logoImage {
+  width: 240px; /* Ajuste o tamanho conforme necessário */
+  margin-bottom: 0rem; /* Espaço entre a logo e o contêiner de login */
+}

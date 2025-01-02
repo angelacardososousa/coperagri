@@ -8,15 +8,52 @@ import Link from 'next/link'; // Importando o Link
 import "./formularioCadastro.css";
 
 export default function FormularioCadastro() {
+
   const [mostrarSenha, setMostrarSenha] = useState(false);
   const [mostrarConfirmarSenha, setMostrarConfirmarSenha] = useState(false);
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [confirmarSenha, setConfirmarSenha] = useState("");
+  const [erro, setErro] = useState(""); // Para exibir erros ao usuário
 
   const toggleMostrarSenha = () => setMostrarSenha(!mostrarSenha);
   const toggleMostrarConfirmarSenha = () => setMostrarConfirmarSenha(!mostrarConfirmarSenha);
+
+  const FunCadastro = async (e) => {
+    e.preventDefault();
+
+    if (senha !== confirmarSenha) {
+      setErro("As senhas não coincidem!");
+      return; // Para interromper o envio
+    }
+
+    const cadastrarData = {
+        nome: nome,
+        senha: senha,
+        email: email
+    };
+
+    try {
+        const response = await fetch('http://localhost:8080/users/cadastrar', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(cadastrarData),
+        });
+
+        // Verifica se o cadastro foi bem-sucedido
+        if (response.ok) {
+          window.location.href = "/formularioLogin";
+        } else {
+            setErro("Cadastro falhou. Verifique suas credenciais.");
+        }
+    } catch (error) {
+        console.error("Erro na requisição:", error);
+        setErro("Ocorreu um erro ao tentar realizar o cadastro.");
+    }
+}
 
   return (
     <div className="pageContainer">
@@ -24,7 +61,7 @@ export default function FormularioCadastro() {
       <Image src={logo} alt="Logo CoperAgri" className="logoImage" />
 
       <div className="cadastroContainer">
-        <form className="form">
+        <form className="form" onSubmit={FunCadastro}>
           <label className="label">Nome</label>
           <input
             type="text"
@@ -71,6 +108,9 @@ export default function FormularioCadastro() {
             </span>
           </div>
 
+          {/* Exibir mensagem de erro, se houver */}
+          {erro && <p className="erroMensagem">{erro}</p>}
+
           <button type="submit" className="cadastrarButton">Cadastrar</button>
 
           {/* Frase "Já tenho conta" com redirecionamento para o login */}
@@ -83,10 +123,3 @@ export default function FormularioCadastro() {
     </div>
   );
 }
-
-
-
-
-
-
-

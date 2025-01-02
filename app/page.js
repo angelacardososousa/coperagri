@@ -1,31 +1,19 @@
-'use client'
-import { useState } from "react"
-import Link from "next/link"
+'use client';
 
-import FormCadastro from './formularioCadastro/page'
-import FormLogin from './formularioLogin/page'
-import Rodape from './rodape/rodape'
-//import style from './login.css'
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 
-export default function Login(){
-    
-    const [login, setLogin] = useState(true)
-    
+export default function Page() {
+  const router = useRouter();
 
-    return(
-    <div className="main">
-        <Link className='btn-voltar' href='/'>&larr;</Link>
-        <h1></h1>
-        <div className="form">
-            <div className="button-form">
-                <button onClick={()=>setLogin(true)} className={login == true ? 'selecionado' : 'botao-form'}>Login</button>
-                <button onClick={()=>setLogin(false)} className={login == false ? 'selecionado' : 'botao-form'}>Cadastro</button>
-            </div>
-            <hr/>
-            {login == true ? <FormLogin/> : <FormCadastro/>}
-        </div>
+  useEffect(() => {
+    // Redireciona o usuário para outra página
+    router.push("/inicial");
+  }, [router]); // Dependência para garantir que o redirecionamento seja executado corretamente
 
-       {/* <Rodape className='rodape'/> */ }
+  return (
+    <div>
+      <p>Redirecionando...</p>
     </div>
-    )
+  );
 }

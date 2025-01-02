@@ -41,7 +41,7 @@ export default function Page() {
   return (
     <div className="container">
       <nav className="navbar">
-        <a href="/inicial" className="navItem">Home</a>
+        <a href="/cadastro" className="navItem">Home</a>
         <a href="/inicial" className="navItem">Contatos</a>
         <a href="/fornecedor" className="navItem">Cadastrar Agricultor(a)</a>
         <a href="/cadastroProduto" className="navItem">Cadastrar Produto</a>

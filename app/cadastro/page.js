@@ -21,7 +21,7 @@ export default function Page() {
 
       {/* Barra de navegação */}
       <nav className="navbar">
-        <a href="/inicial" className="navItem">Home</a>
+        <a href="/cadastro" className="navItem">Home</a>
         <a href="/inicial" className="navItem">Contatos</a>
         <a href="#" className="navItem">Recibo</a>
       </nav>

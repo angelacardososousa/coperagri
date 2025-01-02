@@ -104,3 +104,8 @@
   width: 240px; /* Ajuste o tamanho conforme necessário */
   margin-bottom: 0rem; /* Espaço entre a logo e o contêiner de login */
 }
+.erroMensagem {
+  color: red; /* Define a cor vermelha para a mensagem de erro */
+  font-size: 14px;
+  margin-top: 10px;
+}

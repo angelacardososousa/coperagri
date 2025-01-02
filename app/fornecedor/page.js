@@ -11,7 +11,7 @@ export default function Page() {
   const [telefone, setTelefone] = useState('');
   const [cpf, setCpf] = useState('');
   const [rg, setRg] = useState('');
-  const [logradouro, setLogradouro] = useState('');
+  const [rua, setRua] = useState('');
   const [numero, setNumero] = useState('');
   const [bairro, setBairro] = useState('');
   const [cep, setCep] = useState('');
@@ -21,17 +21,47 @@ export default function Page() {
     console.log('Buscando agricultor(a) com CPF:', cpfBusca);
   };
 
-  const handleConfirmar = () => {
-    // Logica para confirmar o cadastro
-    console.log('Cadastro Confirmado:', {
+  const handleConfirmar = async () => {
+    const userId = localStorage.getItem('userId');
+    const cidade = "igarassu";
+
+    const payload = {
       nomeCompleto,
-      apelido,
-      telefone,
       cpf,
       rg,
-      endereco: { logradouro, numero, bairro, cep },
-      dapCaf
-    });
+      telefone,
+      endereco: { rua, cep, numero, bairro, cidade},
+      dapCaf,
+      apelido,
+      userId
+
+    };
+  
+    try {
+      const token = localStorage.getItem('token'); // Substitua pelo token obtido via autenticação.
+  
+      const response = await fetch('http://localhost:8080/fornecedor/cadastrar', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}` // Inclui o token no cabeçalho
+        },
+        body: JSON.stringify(payload)
+      });
+  
+      if (response.ok) {
+        const data = await response.json();
+        alert('Cadastro realizado com sucesso!');
+        console.log('Resposta do servidor:', data);
+        handleCorrigir(); // Reseta os campos após o sucesso
+      } else {
+        setMensagem('Erro ao realizar o cadastro. Tente novamente.');
+        console.error('Erro ao cadastrar:', response.statusText);
+      }
+    } catch (error) {
+      setMensagem('Ocorreu um erro inesperado.');
+      console.error('Erro na requisição:', error);
+    }
   };
 
   const handleCorrigir = () => {
@@ -41,7 +71,7 @@ export default function Page() {
     setTelefone('');
     setCpf('');
     setRg('');
-    setLogradouro('');
+    setRua('');
     setNumero('');
     setBairro('');
     setCep('');
@@ -52,7 +82,7 @@ export default function Page() {
     <div className='container'>
       <nav className='navbar'>
      
-        <a href="/inicial" className='navItem'>Home</a>
+        <a href="/cadastro" className='navItem'>Home</a>
         <a href="/inicial" className='navItem'>Contatos</a>
         <a href="/cadastroProduto" className='navItem'>Cadastrar Produto</a>
         <a href="/cadastroFornecimento" className='navItem'>Cadastrar Fornecimento</a>
@@ -153,12 +183,12 @@ export default function Page() {
         <div className='formFieldRow ruaNumeroRow'> 
           {/* Campo de Rua */}
           <div className='formField'>
-            <label htmlFor="logradouro" className='label'>Rua</label>
+            <label htmlFor="rua" className='label'>Rua</label>
             <input
               type="text"
-              id="logradouro"
-              value={logradouro}
-              onChange={(e) => setLogradouro(e.target.value)}
+              id="rua"
+              value={rua}
+              onChange={(e) => setRua(e.target.value)}
               className='input'
               placeholder="Digite a rua"
             />

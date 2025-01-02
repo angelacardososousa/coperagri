@@ -4,33 +4,25 @@ import './cadastroProduto.css'; // Certifique-se de que o caminho está correto
 
 export default function Page() {
   const [cpfBusca, setCpfBusca] = useState('');
-  const [produto, setProduto] = useState('');
+  const [nome, setNome] = useState('');
   const [quantidade, setQuantidade] = useState('');
   const [unidade, setUnidade] = useState('kg');
-  const [valorUnitario, setValorUnitario] = useState('');
+  const [valor, setValor] = useState('');
   const [valorTotal, setValorTotal] = useState(0);
-
-  //const handlesetProduto = () => {
-   // console.log('Buscando produto:', setProduto);
-  //};
-
-  const handleBuscarProduto = () => {
-    console.log('Buscando produto:', produto);
-  };
 
   const handleQuantidadeChange = (e) => {
     const qtd = e.target.value;
     setQuantidade(qtd);
 
     // Calcular o valor total
-    if (valorUnitario && qtd) {
-      setValorTotal(parseFloat(valorUnitario) * parseFloat(qtd));
+    if (valor && qtd) {
+      setValorTotal(parseFloat(valor) * parseFloat(qtd));
     }
   };
 
-  const handleValorUnitarioChange = (e) => {
+  const handleValorChange = (e) => {
     const valor = e.target.value;
-    setValorUnitario(valor);
+    setValor(valor);
 
     // Calcular o valor total
     if (quantidade && valor) {
@@ -41,7 +33,7 @@ export default function Page() {
   return (
     <div className="container">
       <nav className="navbar">
-        <a href="#" className="navItem">Home</a>
+        <a href="/cadastro" className="navItem">Home</a>
         <a href="#" className="navItem">Contatos</a>
         <a href="#" className="navItem">Cadastrar Agricultor(a)</a>
      
@@ -52,8 +44,8 @@ export default function Page() {
       {/* Formulário de Cadastro de Fornecimento */}
       <div className="formContainer">
         <h1 className="titulo">Cadastro de Produto</h1>
-
-        {/* Busca CPF */}
+      
+        {/* Busca CPF 
         <div className="formField buscaProdutoContainer">
           <label htmlFor="produtoBusca" className="label">Buscar por produto</label>
           <div className="inputIconContainer">
@@ -65,10 +57,10 @@ export default function Page() {
               className="input"
               placeholder="Digite o nome do produto"
             />
-            <span className="icon">🔍</span> {/* Ícone de Lupa */}
+            <span className="icon">🔍</span> {/* Ícone de Lupa
           </div>
         </div>
-
+*/}
         {/* Busca Produto */}
         <div className="formField buscaProdutoContainer">
           <label htmlFor="produto" className="label">Novo produto</label>
@@ -76,8 +68,8 @@ export default function Page() {
             <input
               type="text"
               id="produto"
-              value={produto}
-              onChange={(e) => setProduto(e.target.value)}
+              value={nome}
+              onChange={(e) => setNome(e.target.value)}
               className="input"
               placeholder="Digite o nome do produto"
             />
@@ -86,7 +78,7 @@ export default function Page() {
         </div>
 
         {/* Quantidade e Unidade */}
-        {/*<div className="formField">
+        <div className="formField">
           <label htmlFor="quantidade" className="label">Quantidade</label>
           <div className="quantidadeContainer">
             <input
@@ -110,14 +102,14 @@ export default function Page() {
         </div>
 
         {/* Valor Unitário e Valor Total */}
-        {/*<div className="formField valorContainer">
-          <div className="valorUnitarioField">
-            <label htmlFor="valorUnitario" className="label">Valor Unitário</label>
+        <div className="formField valorContainer">
+          <div className="valorField">
+            <label htmlFor="valor" className="label">Valor Unitário</label>
             <input
               type="number"
-              id="valorUnitario"
-              value={valorUnitario}
-              onChange={handleValorUnitarioChange}
+              id="valor"
+              value={valor}
+              onChange={handleValorChange}
               className="input"
               placeholder="Digite o valor unitário"
             />
@@ -134,8 +126,7 @@ export default function Page() {
             />
           </div>
         </div>
-        *
-
+        
 
         {/* Botões de Ação */}
         <div className="formActions">

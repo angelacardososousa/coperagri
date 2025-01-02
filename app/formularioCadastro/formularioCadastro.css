@@ -112,4 +112,10 @@
   display: block;      /* Garante que o texto ocupe o espaço inteiro */
   width: 100%;         /* Garante que ocupe toda a largura disponível */
 }
+.erroMensagem {
+  color: red; /* Define a cor vermelha para a mensagem de erro */
+  font-size: 14px;
+  margin-top: 10px;
+}
+
 

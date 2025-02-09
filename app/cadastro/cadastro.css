@@ -1,21 +1,22 @@
 /* Container principal */
 .container {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start; /* Alinha no início para dar espaço ao rodapé */
   height: 100vh;
   background-color: #f4f4f9;
+  padding-top: 0px; /* Adiciona um pouco de espaço no topo */
+  
 }
+
 /* Container para a logo */
-.navbar {
+.logoContainer {
+  margin-bottom: px; /* Espaçamento abaixo da logo */
   display: flex;
   justify-content: center;
   width: 100%;
-  background-color: #4caf50;
-  padding: 10px 0;
-  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
-  margin-top: 0px; /* Remove o espaço acima da barra de navegação */
   
 }
 
@@ -23,6 +24,8 @@
 .logoImage {
   max-width: 100%;
   height: auto;
+  width: 300px; /* Ajuste o tamanho conforme necessário */
+  margin-bottom: 0; /* Move a logo um pouco para cima */
 }
 
 /* Barra de navegação */
@@ -33,7 +36,6 @@
   background-color: #4caf50;
   padding: 10px 0;
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
-  margin-top: 0; /* Remove o espaço acima da barra de navegação */
 }
 
 .navItem {
@@ -42,11 +44,11 @@
   font-weight: bold;
   text-decoration: none;
   margin: 0 10px;
-  margin-top: 0px;
 }
 
 .navItem:hover {
   text-decoration: underline;
+   
 }
 
 /* Botões de ação */
@@ -55,12 +57,13 @@
   flex-direction: row; /* Lado a lado */
   justify-content: center;
   align-items: center;
-  gap: 20px; /* Espaçamento entre os botões */
-  margin: 50px 0; /* Espaço acima e abaixo dos botões */
+  gap: 5px; /* Espaçamento entre os botões */
+  margin: 20px 0; /* Espaço acima e abaixo dos botões */
 }
 
+/* Botões estilos */
 .button {
-  min-width: 150px;
+  min-width: 100px;
   padding: 12px;
   font-size: 1rem;
   font-weight: bold;
@@ -101,21 +104,24 @@
 footer {
   background-color: #328b3b; /* Cor de fundo escura */
   color: #f1f1f1; /* Cor do texto em tom claro */
-  text-align: center; /* Alinha o texto ao centro */
-  padding: 20px 0; /* Espaçamento interno para altura */
+  width: 100%;
+  padding: 10px 10px; /* Espaçamento interno para altura */
   font-size: 0.9rem; /* Tamanho do texto */
   margin-top: auto; /* Garante que o rodapé fique no final da página */
-  box-shadow: 0px -2px 5px rgba(33, 158, 62, 0.1); /* Sombra suave no topo do rodapé */
+  box-shadow: 0px 2px 2px rgba(33, 158, 62, 0.1); /* Sombra suave no topo do rodapé */
+
 }
 
 /* Links no rodapé */
 footer a {
+  width: 100%;
   color: #81c784; /* Tom verde claro para links */
   text-decoration: none; /* Remove sublinhado */
   font-weight: bold; /* Deixa os links em negrito */
 }
 
 footer a:hover {
+  width: 100%;
   color: #66bb6a; /* Verde mais escuro ao passar o mouse */
   text-decoration: underline; /* Adiciona sublinhado no hover */
 }

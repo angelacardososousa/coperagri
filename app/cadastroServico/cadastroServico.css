@@ -1,0 +1,178 @@
+* {
+    font-family: 'Roboto', sans-serif;
+  }
+  /* Container principal */
+  .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      height: 100vh;
+      background-color: #f7f8fa;
+      padding: 30px 15px;
+    }
+    
+    /* Barra de navegação */
+    .navbar {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      background-color: #4caf50;
+      padding: 10px 0;
+      box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    .navItem {
+      color: white;
+      font-size: 0.9rem;
+      font-weight: bold;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+    
+    .navItem:hover {
+      text-decoration: underline;
+    }
+    
+    /* Formulário */
+    .formContainer {
+      width: 100%;
+      max-width: 500px;
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .titulo {
+      font-size: 1.6rem;
+      color: #4caf50;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    
+    .formField {
+      margin-bottom: 10px;
+    }
+    
+    .label {
+      font-size: 1rem;
+      color: #333;
+      margin-bottom: 3px;
+    }
+    
+    .input {
+      width: 100%;
+      padding: 12px;
+      margin-top: 2px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      box-sizing: border-box;
+    }
+    
+    .input:focus {
+      border-color: #4caf50;
+      outline: none;
+    }
+    
+    .inputBuscaContainer {
+      display: flex;
+      align-items: center;
+    }
+    
+    .inputBusca {
+      width: 80%;
+      padding: 10px;
+      border-radius: 6px 0 0 6px;
+      border: 1px solid #ccc;
+    }
+    
+    .buttonBusca {
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      padding: 5px;
+      cursor: pointer;
+      border-radius: 0 6px 6px 0;
+      
+    }
+    
+    .buttonBusca:hover {
+      background-color: #43a047;
+    }
+    
+    .quantidadeContainer {
+      display: flex;
+      align-items: center;
+    }
+    
+    .select {
+      width: 40%;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    
+    .formActions {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+    }
+    
+    .button {
+      width: 48%;
+      padding: 12px;
+      font-size: 1rem;
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    
+    .button:hover {
+      background-color: #43a047;
+    }
+    
+    .buttonCorrigir {
+      background-color: #f44336;
+    }
+    
+    .buttonCorrigir:hover {
+      background-color: #d32f2f;
+    }
+    .valorUnitarioField, .valorTotalField {
+      flex: 1;
+    }
+    .valorContainer {
+      display: flex;
+      gap: 10px;
+    }
+    /* Estilização do Contêiner para o campo de CPF com ícone */
+  .buscaProdutoContainer {
+    position: relative;
+  }
+  
+  .inputIconContainer {
+    position: relative;
+    width: 100%;
+  }
+  
+  .inputIconContainer .input {
+    padding-right: 30px; /* Espaço para o ícone à direita */
+  }
+  
+  .icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999; /* Cor da lupa */
+    pointer-events: none; /* Desativa o clique no ícone */
+    font-size: 0.8rem;
+  }

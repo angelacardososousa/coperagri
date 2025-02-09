@@ -11,7 +11,7 @@ export default function Page() {
   const [telefone, setTelefone] = useState('');
   const [cpf, setCpf] = useState('');
   const [rg, setRg] = useState('');
-  const [rua, setRua] = useState('');
+  const [logradouro, setLogradouro] = useState('');
   const [numero, setNumero] = useState('');
   const [bairro, setBairro] = useState('');
   const [cep, setCep] = useState('');
@@ -21,47 +21,17 @@ export default function Page() {
     console.log('Buscando agricultor(a) com CPF:', cpfBusca);
   };
 
-  const handleConfirmar = async () => {
-    const userId = localStorage.getItem('userId');
-    const cidade = "igarassu";
-
-    const payload = {
+  const handleConfirmar = () => {
+    // Logica para confirmar o cadastro
+    console.log('Cadastro Confirmado:', {
       nomeCompleto,
+      apelido,
+      telefone,
       cpf,
       rg,
-      telefone,
-      endereco: { rua, cep, numero, bairro, cidade},
-      dapCaf,
-      apelido,
-      userId
-
-    };
-  
-    try {
-      const token = localStorage.getItem('token'); // Substitua pelo token obtido via autenticação.
-  
-      const response = await fetch('http://localhost:8080/fornecedor/cadastrar', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}` // Inclui o token no cabeçalho
-        },
-        body: JSON.stringify(payload)
-      });
-  
-      if (response.ok) {
-        const data = await response.json();
-        alert('Cadastro realizado com sucesso!');
-        console.log('Resposta do servidor:', data);
-        handleCorrigir(); // Reseta os campos após o sucesso
-      } else {
-        setMensagem('Erro ao realizar o cadastro. Tente novamente.');
-        console.error('Erro ao cadastrar:', response.statusText);
-      }
-    } catch (error) {
-      setMensagem('Ocorreu um erro inesperado.');
-      console.error('Erro na requisição:', error);
-    }
+      endereco: { logradouro, numero, bairro, cep },
+      dapCaf
+    });
   };
 
   const handleCorrigir = () => {
@@ -71,7 +41,7 @@ export default function Page() {
     setTelefone('');
     setCpf('');
     setRg('');
-    setRua('');
+    setLogradouro('');
     setNumero('');
     setBairro('');
     setCep('');
@@ -82,11 +52,15 @@ export default function Page() {
     <div className='container'>
       <nav className='navbar'>
      
-        <a href="/cadastro" className='navItem'>Home</a>
-        <a href="/inicial" className='navItem'>Contatos</a>
-        <a href="/cadastroProduto" className='navItem'>Cadastrar Produto</a>
-        <a href="/cadastroFornecimento" className='navItem'>Cadastrar Fornecimento</a>
-        <a href="#" className='navItem'>Relatórios</a>
+        <a href="/inicial" className='navItem'>Home</a>
+        <a href="/cadastroDadosBancarios" className='navItem'>Dados Bancários</a>
+        <a href="/cadastroProduto" className='navItem'>Produto</a>
+        <a href="/cadastroServico" className='navItem'>Serviço</a>
+        <a href="/cadastroFornecimento" className='navItem'>Fornecimento de Produto</a>
+        <a href="cadastroPrestacao" className='navItem'>Prestação de Serviço</a>
+        <a href="#" className='navItem'>Recibo</a>
+        <a href="#" className='navItem'>Relatório</a>
+
   
         {/* Campo de busca no lado direito */}
         <div className='buscaContainer'>
@@ -106,7 +80,7 @@ export default function Page() {
 
       {/* Container do formulário */}
       <div className='formContainer'>
-        <h1 className='titulo'>Cadastro do Agricultor(a)</h1>
+        <h1 className='titulo'>Cadastrar Agricultor(a)</h1>
         
         {/* Nome Completo */}
         <div className='formField'>
@@ -183,12 +157,12 @@ export default function Page() {
         <div className='formFieldRow ruaNumeroRow'> 
           {/* Campo de Rua */}
           <div className='formField'>
-            <label htmlFor="rua" className='label'>Rua</label>
+            <label htmlFor="logradouro" className='label'>Rua</label>
             <input
               type="text"
-              id="rua"
-              value={rua}
-              onChange={(e) => setRua(e.target.value)}
+              id="logradouro"
+              value={logradouro}
+              onChange={(e) => setLogradouro(e.target.value)}
               className='input'
               placeholder="Digite a rua"
             />

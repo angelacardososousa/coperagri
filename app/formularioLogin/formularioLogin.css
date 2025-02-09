@@ -4,8 +4,8 @@
 .loginContainer {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   height: 100vh;
   background-color: #f4f4f9;
 }
@@ -32,12 +32,13 @@
 }
 
 .input {
-  width: 100%;
+  width: 95.5%;
   padding: 12px;
   margin-bottom: 0.5rem; 
   border: 1px solid #c4c1c1;
   border-radius: 4px;
   font-size: 1rem;
+
 }
 
 .inputSenha {
@@ -62,7 +63,7 @@
 }
 
 .entrarButton {
-  width: 100%;
+  width: 103%;
   padding: 12px;
   background-color: #4caf50;
   color: white;
@@ -72,6 +73,8 @@
   cursor: pointer;
   margin-bottom: 0.5rem;
   transition: background-color 0.3s;
+  
+  
 }
 
 .entrarButton:hover {
@@ -103,9 +106,4 @@
 .logoImage {
   width: 240px; /* Ajuste o tamanho conforme necessário */
   margin-bottom: 0rem; /* Espaço entre a logo e o contêiner de login */
-}
-.erroMensagem {
-  color: red; /* Define a cor vermelha para a mensagem de erro */
-  font-size: 14px;
-  margin-top: 10px;
 }

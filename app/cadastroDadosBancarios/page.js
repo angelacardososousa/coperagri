@@ -1,12 +1,12 @@
 'use client';
 import { useState } from 'react';
-import './cadastroFornecimento.css'; // Certifique-se de que o caminho está correto
+import './cadastroDadosBancarios.css'; // Certifique-se de que o caminho está correto
 
 export default function Page() {
   const [cpfBusca, setCpfBusca] = useState('');
-  const [produto, setProduto] = useState('');
+  const [conta, setConta] = useState('');
   const [quantidade, setQuantidade] = useState('');
-  const [unidade, setUnidade] = useState('kg');
+  const [unidade, setUnidade] = useState('');
   const [valorUnitario, setValorUnitario] = useState('');
   const [valorTotal, setValorTotal] = useState(0);
 
@@ -14,8 +14,8 @@ export default function Page() {
     console.log('Buscando agricultor(a) com CPF:', cpfBusca);
   };
 
-  const handleBuscarProduto = () => {
-    console.log('Buscando produto:', produto);
+  const handleBuscarConta = () => {
+    console.log('Buscando conta:', conta);
   };
 
   const handleQuantidadeChange = (e) => {
@@ -43,17 +43,17 @@ export default function Page() {
       <nav className="navbar">
         <a href="/inicial" className="navItem">Home</a>
         <a href="/fornecedor" className="navItem">Agricultor(a)</a>
-        <a href="/cadastroDadosBancarios" className="navItem">Dados Bancários</a>
         <a href="/cadastroProduto" className="navItem">Produto</a>
         <a href="/cadastroServico" className="navItem">Serviço</a>
-        <a href="cadastroPrestacao" className="navItem">Prestação de Serviço</a>
+        <a href="/cadastroFornecimento" className="navItem">Fornecimento de Produto</a>
+        <a href="/cadastroPrestacao" className="navItem">Prestação de Serviço</a>
         <a href="" className="navItem">Recibo</a>
-        <a href="" className="navItem">Relatório</a>
+        <a href="#" className="navItem">Relatório</a>
       </nav>
 
       {/* Formulário de Cadastro de Fornecimento */}
       <div className="formContainer">
-        <h1 className="titulo">Cadastrar Fornecimento de Produto</h1>
+        <h1 className="titulo">Cadastrar Dados Bancários</h1>
 
         {/* Busca CPF */}
         <div className="formField buscaCpfContainer">
@@ -71,71 +71,72 @@ export default function Page() {
           </div>
         </div>
 
-        {/* Busca Produto */}
-        <div className="formField buscaProdutoContainer">
-          <label htmlFor="produto" className="label">Produto</label>
-          <div className="inputIconContainer">
-            <input
-              type="text"
-              id="produto"
-              value={produto}
-              onChange={(e) => setProduto(e.target.value)}
-              className="input"
-              placeholder="Digite o nome do produto"
-            />
-            <span className="icon">🔍</span> {/* Ícone de Lupa */}
-          </div>
-        </div>
-
-        {/* Quantidade e Unidade */}
+        {/* agencia e tipo */}
         <div className="formField">
-          <label htmlFor="quantidade" className="label">Quantidade</label>
+          <label htmlFor="quantidade" className="label">Número da Agência Bancária </label>
           <div className="quantidadeContainer">
             <input
-              type="number"
+              type="text"
               id="quantidade"
               value={quantidade}
               onChange={handleQuantidadeChange}
               className="input"
-              placeholder="Digite a quantidade"
+              placeholder="Digite o número"
+              inputMode="numeric"
+              pattern="\d"
             />
             <select
-              id="unidade"
-              value={unidade}
-              onChange={(e) => setUnidade(e.target.value)}
-              className="input">
-              <option value="kg">Kg</option>
-              <option value="mão">Mão</option>
-              <option value="unidade">Unidade</option>
+                id="text"
+                value={conta}
+                onChange={(e) => setUnidade(e.target.value)}
+                className="input"
+>               <option value="" disabled hidden>Tipo da Conta</option>
+                <option value="poupanca">Poupança</option>
+                <option value="contaCorrente">Conta Corrente</option>
             </select>
+
           </div>
         </div>
 
-        {/* Valor Unitário e Valor Total */}
+        {/* conta e pix */}
         <div className="formField valorContainer">
           <div className="valorUnitarioField">
-            <label htmlFor="valorUnitario" className="label">Valor Unitário</label>
+            <label htmlFor="valorUnitario" className="label">Número da Conta</label>
             <input
-              type="number"
+              type="text"
               id="valorUnitario"
               value={valorUnitario}
               onChange={handleValorUnitarioChange}
               className="input"
-              placeholder="Digite o valor unitário"
+              placeholder="Digite o número da conta"
+              inputMode="numeric"
+              pattern='\d'
             />
           </div>
-          <div className="valorTotalField">
-            <label htmlFor="valorTotal" className="label">Valor Total</label>
+          <div className="quantidadeField">
+            <label htmlFor="quantidade" className="label">Chave Pix</label>
             <input
               type="text"
-              id="valorTotal"
-              value={valorTotal}
+              id="quantidade"
+              value={quantidade}
               readOnly
               className="input"
-              placeholder="Valor total"
+              placeholder="chave pix"
+              inputMode="numeric"
+              pattern="\d"
             />
           </div>
         </div>
+
+        {/* Upload de Documento Bancário */}
+        <div class="formField">
+    <label for="arquivoBanco" class="label">Anexar documento da Conta</label>
+    <br></br>
+    <input type="file" id="arquivoBanco" class="fileInput" />
+    <button id="uploadButton" class="button">Salvar</button>
+    <p id="fileName" class="fileName"></p>
+</div>
+
 
         {/* Botões de Ação */}
         <div className="formActions">
@@ -146,5 +147,4 @@ export default function Page() {
     </div>
   );
 }
-
 

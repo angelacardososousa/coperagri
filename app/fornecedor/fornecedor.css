@@ -31,7 +31,7 @@
   font-size: 0.9rem;
   font-weight: bold; 
   text-decoration: none; 
-  margin: 0 20px;          /* Espaço entre os itens da navbar */
+  margin: 0 10px;          /* Espaço entre os itens da navbar */
   text-align: center;      /* Garante que o texto fique centralizado */
 } 
 
@@ -42,7 +42,7 @@
 .buscaContainer {
   display: flex;
   align-items: center;
-  margin-left: auto;  /* Move o campo de busca para a direita */
+  margin-left: 10;  /* Move o campo de busca para a direita */
 }
 
 .inputBusca {
@@ -98,7 +98,6 @@
   flex: 1; /* Ajusta para que cada campo ocupe uma proporção igual */
   min-width: 150px; /* Largura mínima para cada campo */
 }
-
 
 .label {
   font-size: 1rem;  /* Fonte reduzida */

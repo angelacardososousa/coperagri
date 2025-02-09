@@ -1,10 +1,10 @@
 'use client';
 import { useState } from 'react';
-import './cadastroFornecimento.css'; // Certifique-se de que o caminho está correto
+import './cadastroPrestacao.css'; // Certifique-se de que o caminho está correto
 
 export default function Page() {
   const [cpfBusca, setCpfBusca] = useState('');
-  const [produto, setProduto] = useState('');
+  const [servico, setServico] = useState('');
   const [quantidade, setQuantidade] = useState('');
   const [unidade, setUnidade] = useState('kg');
   const [valorUnitario, setValorUnitario] = useState('');
@@ -14,8 +14,8 @@ export default function Page() {
     console.log('Buscando agricultor(a) com CPF:', cpfBusca);
   };
 
-  const handleBuscarProduto = () => {
-    console.log('Buscando produto:', produto);
+  const handleBuscarServico = () => {
+    console.log('Buscando servico:', servico);
   };
 
   const handleQuantidadeChange = (e) => {
@@ -46,14 +46,14 @@ export default function Page() {
         <a href="/cadastroDadosBancarios" className="navItem">Dados Bancários</a>
         <a href="/cadastroProduto" className="navItem">Produto</a>
         <a href="/cadastroServico" className="navItem">Serviço</a>
-        <a href="cadastroPrestacao" className="navItem">Prestação de Serviço</a>
+        <a href="/cadastroFornecimento" className="navItem">Fornecimento de Produto</a>
         <a href="" className="navItem">Recibo</a>
-        <a href="" className="navItem">Relatório</a>
+        <a href="#" className="navItem">Relatório</a>
       </nav>
 
       {/* Formulário de Cadastro de Fornecimento */}
       <div className="formContainer">
-        <h1 className="titulo">Cadastrar Fornecimento de Produto</h1>
+        <h1 className="titulo">Cadastrar Prestação de Serviço</h1>
 
         {/* Busca CPF */}
         <div className="formField buscaCpfContainer">
@@ -71,17 +71,17 @@ export default function Page() {
           </div>
         </div>
 
-        {/* Busca Produto */}
-        <div className="formField buscaProdutoContainer">
-          <label htmlFor="produto" className="label">Produto</label>
+        {/* Busca Serviço */}
+        <div className="formField buscaServicoContainer">
+          <label htmlFor="servico" className="label">Serviço</label>
           <div className="inputIconContainer">
             <input
               type="text"
-              id="produto"
-              value={produto}
-              onChange={(e) => setProduto(e.target.value)}
+              id="servico"
+              value={servico}
+              onChange={(e) => setServico(e.target.value)}
               className="input"
-              placeholder="Digite o nome do produto"
+              placeholder="Digite o nome do serviço"
             />
             <span className="icon">🔍</span> {/* Ícone de Lupa */}
           </div>
@@ -100,14 +100,15 @@ export default function Page() {
               placeholder="Digite a quantidade"
             />
             <select
-              id="unidade"
-              value={unidade}
-              onChange={(e) => setUnidade(e.target.value)}
-              className="input">
-              <option value="kg">Kg</option>
-              <option value="mão">Mão</option>
-              <option value="unidade">Unidade</option>
+                id="text"
+                value={servico}
+                onChange={(e) => setUnidade(e.target.value)}
+                className="input"
+>               <option value="" disabled hidden>Escolha</option>
+                <option value="dia">Dia</option>
+                <option value="hora">Hora</option>
             </select>
+
           </div>
         </div>
 
@@ -146,5 +147,3 @@ export default function Page() {
     </div>
   );
 }
-
-

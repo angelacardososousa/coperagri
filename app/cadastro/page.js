@@ -2,8 +2,8 @@
 
 import Image from 'next/image'; // Importar o componente Image do Next.js
 import './cadastro.css';
-import Rodape from '../rodape/rodape'; // Importando o rodapé
 import LogoImg from '@/app/imagens/logoCompletaFundoTransparenteNova.png'; // Imagem do logo
+import Rodape from '../rodape/rodape'; // Importando o rodapé
 
 export default function Page() {
   return (
@@ -21,26 +21,41 @@ export default function Page() {
 
       {/* Barra de navegação */}
       <nav className="navbar">
-        <a href="/cadastro" className="navItem">Home</a>
-        <a href="/inicial" className="navItem">Contatos</a>
-        <a href="#" className="navItem">Recibo</a>
       </nav>
-
+    
       {/* Botões de ação */}
-      <div className="buttonContainer">
-        <a href="/fornecedor">
-          <button className="button buttonLightGreen">Cadastrar Agricultor(a)</button>
-        </a>
-        <a href="/cadastroProduto">
-          <button className="button buttonGreen">Cadastrar Produto</button>
-        </a>
-        <a href="/cadastroFornecimento">
-          <button className="button buttonDarkGreen">Cadastrar Fornecimento</button>
-        </a>
-      </div>
+        <div className="buttonContainer">
+          <a href="/fornecedor">
+            <button className="button buttonLightGreen">Agricultor(a)</button>
+          </a>
+          <a href="/cadastroDadosBancarios">
+            <button className="button buttonLightGreen">Dados Bancários</button>
+          </a>
+          <a href="/cadastroProduto">
+            <button className="button buttonGreen">Produto</button>
+          </a>
+          <a href="/cadastroServico">
+            <button className="button buttonGreen">Serviço</button>
+          </a>
+          <a href="/cadastroFornecimento">
+            <button className="button buttonDarkGreen">Fornecimento de Produto</button>
+          </a>
+          <a href="cadastroPrestacao">
+            <button className="button buttonDarkGreen">Prestação de Serviço</button>
+          </a>
+          <a href="">
+            <button className="button buttonLightGreen">Recibo</button>
+          </a>
+          <a href="">
+            <button className="button buttonLightGreen">Relatório</button>
+          </a>
 
-      {/* Rodapé */}
-      <Rodape />
+      </div>
+      <br></br>
+      <div>
+        {/* Rodapé */}
+          <Rodape />
+      </div>
     </div>
   );
 }

@@ -52,13 +52,13 @@ export default function Page() {
     <div className='container'>
       <nav className='navbar'>
      
-        <a href="/inicial" className='navItem'>Home</a>
-        <a href="/cadastroDadosBancarios" className='navItem'>Dados Bancários</a>
+        <a href="/cadastro" className='navItem'>Home</a>
         <a href="/cadastroProduto" className='navItem'>Produto</a>
-        <a href="/cadastroServico" className='navItem'>Serviço</a>
+       
         <a href="/cadastroFornecimento" className='navItem'>Fornecimento de Produto</a>
         <a href="cadastroPrestacao" className='navItem'>Prestação de Serviço</a>
-        <a href="#" className='navItem'>Recibo</a>
+         {/*<a href="#" className='navItem'>Recibo</a>
+          <a href="/cadastroServico" className='navItem'>Serviço</a>
         <a href="#" className='navItem'>Relatório</a>
 
   
@@ -224,8 +224,7 @@ export default function Page() {
         
         {/* Botões de Ação */}
         <div className='formActions'>
-          <button onClick={handleConfirmar} className='button'>Confirmar</button>
-          <button onClick={handleCorrigir} className='button buttonCorrigir'>Corrigir</button>
+        <a href="/cadastroDadosBancarios" className="">Clique aqui para incluir os dados bancários</a>
         </div>
       </div>
     </div>

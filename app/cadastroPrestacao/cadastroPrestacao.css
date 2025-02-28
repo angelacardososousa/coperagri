@@ -176,3 +176,22 @@
     pointer-events: none; /* Desativa o clique no ícone */
     font-size: 0.8rem;
   }
+  .buttonRecibo {
+    background-color: #ff9800; /* Laranja */
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
+    width: 100%; 
+  }
+  
+  .buttonRecibo:hover {
+    background-color: #e68900; /* Laranja mais escuro ao passar o mouse */
+  }
+  

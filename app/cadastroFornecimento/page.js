@@ -6,7 +6,7 @@ export default function Page() {
   const [cpfBusca, setCpfBusca] = useState('');
   const [produto, setProduto] = useState('');
   const [quantidade, setQuantidade] = useState('');
-  const [unidade, setUnidade] = useState('kg');
+  const [unidade, setUnidade] = useState('');
   const [valorUnitario, setValorUnitario] = useState('');
   const [valorTotal, setValorTotal] = useState(0);
 
@@ -41,14 +41,15 @@ export default function Page() {
   return (
     <div className="container">
       <nav className="navbar">
-        <a href="/inicial" className="navItem">Home</a>
+        <a href="/cadastro" className="navItem">Home</a>
         <a href="/fornecedor" className="navItem">Agricultor(a)</a>
-        <a href="/cadastroDadosBancarios" className="navItem">Dados Bancários</a>
         <a href="/cadastroProduto" className="navItem">Produto</a>
-        <a href="/cadastroServico" className="navItem">Serviço</a>
+       
         <a href="cadastroPrestacao" className="navItem">Prestação de Serviço</a>
-        <a href="" className="navItem">Recibo</a>
-        <a href="" className="navItem">Relatório</a>
+       {/* <a href="" className="navItem">Recibo</a>
+        <a href="/cadastroDadosBancarios" className="navItem">Dados Bancários</a>
+        <a href="/cadastroServico" className="navItem">Serviço</a>
+        <a href="" className="navItem">Relatório</a>*/}
       </nav>
 
       {/* Formulário de Cadastro de Fornecimento */}
@@ -104,6 +105,7 @@ export default function Page() {
               value={unidade}
               onChange={(e) => setUnidade(e.target.value)}
               className="input">
+              <option value=""disabled hidden>Escolha</option>
               <option value="kg">Kg</option>
               <option value="mão">Mão</option>
               <option value="unidade">Unidade</option>
@@ -116,7 +118,7 @@ export default function Page() {
           <div className="valorUnitarioField">
             <label htmlFor="valorUnitario" className="label">Valor Unitário</label>
             <input
-              type="number"
+              type="text"
               id="valorUnitario"
               value={valorUnitario}
               onChange={handleValorUnitarioChange}
@@ -129,7 +131,8 @@ export default function Page() {
             <input
               type="text"
               id="valorTotal"
-              value={valorTotal}
+              value={valorTotal !== null && valorTotal !== undefined 
+                ? Number(valorTotal).toLocaleString("pt-PT", { minimumFractionDigits: 2 }): "0,00"}
               readOnly
               className="input"
               placeholder="Valor total"

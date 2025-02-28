@@ -5,6 +5,7 @@ import './cadastroDadosBancarios.css'; // Certifique-se de que o caminho está c
 export default function Page() {
   const [cpfBusca, setCpfBusca] = useState('');
   const [conta, setConta] = useState('');
+  const [banco, setBanco] = useState('');
   const [quantidade, setQuantidade] = useState('');
   const [unidade, setUnidade] = useState('');
   const [valorUnitario, setValorUnitario] = useState('');
@@ -41,14 +42,15 @@ export default function Page() {
   return (
     <div className="container">
       <nav className="navbar">
-        <a href="/inicial" className="navItem">Home</a>
+        <a href="/cadastro" className="navItem">Home</a>
         <a href="/fornecedor" className="navItem">Agricultor(a)</a>
         <a href="/cadastroProduto" className="navItem">Produto</a>
-        <a href="/cadastroServico" className="navItem">Serviço</a>
+       
         <a href="/cadastroFornecimento" className="navItem">Fornecimento de Produto</a>
         <a href="/cadastroPrestacao" className="navItem">Prestação de Serviço</a>
-        <a href="" className="navItem">Recibo</a>
-        <a href="#" className="navItem">Relatório</a>
+        {/*<a href="" className="navItem">Recibo</a>
+         <a href="/cadastroServico" className="navItem">Serviço</a>
+        <a href="#" className="navItem">Relatório</a>*/}
       </nav>
 
       {/* Formulário de Cadastro de Fornecimento */}
@@ -71,24 +73,40 @@ export default function Page() {
           </div>
         </div>
 
-        {/* agencia e tipo */}
+        {/* banco, agencia e tipo */}
         <div className="formField">
-          <label htmlFor="quantidade" className="label">Número da Agência Bancária </label>
+          <label htmlFor="quantidade" className="label"> </label>
           <div className="quantidadeContainer">
+          <select
+            id="banco"
+            value={banco}
+            onChange={(e) => setBanco(e.target.value)}
+            className="inputBanco"
+          >             
+                <option value=""disabled hidden>Banco</option>
+                <option value="Banco do Brasil">Banco do Brasil-001</option>
+                <option value="Itaú Unibanco">Itaú Unibanco-341</option>
+                <option value="Bradesco">Bradesco-237</option>
+                <option value="Caixa Econômica Federal">Caixa Econômica Federal-104</option>
+                <option value="Nubank">Nubank-260</option>
+                <option value="Inter">Inter-077</option>
+                <option value="Outro">Outro</option>
+            </select>
+            
             <input
               type="text"
               id="quantidade"
               value={quantidade}
               onChange={handleQuantidadeChange}
-              className="input"
-              placeholder="Digite o número"
+              className="inputAgencia"
+              placeholder="Agência"
               inputMode="numeric"
               pattern="\d"
             />
             <select
-                id="text"
+                id="conta"
                 value={conta}
-                onChange={(e) => setUnidade(e.target.value)}
+                onChange={(e) => setConta(e.target.value)}
                 className="input"
 >               <option value="" disabled hidden>Tipo da Conta</option>
                 <option value="poupanca">Poupança</option>
@@ -101,7 +119,7 @@ export default function Page() {
         {/* conta e pix */}
         <div className="formField valorContainer">
           <div className="valorUnitarioField">
-            <label htmlFor="valorUnitario" className="label">Número da Conta</label>
+            <label htmlFor="valorUnitario" className="label"></label>
             <input
               type="text"
               id="valorUnitario"
@@ -114,7 +132,7 @@ export default function Page() {
             />
           </div>
           <div className="quantidadeField">
-            <label htmlFor="quantidade" className="label">Chave Pix</label>
+            <label htmlFor="quantidade" className="label"></label>
             <input
               type="text"
               id="quantidade"

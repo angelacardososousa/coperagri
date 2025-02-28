@@ -55,7 +55,7 @@
   }
   
   .formField {
-    margin-bottom: 10px;
+    margin-bottom: 8px;
   }
   
   
@@ -67,14 +67,34 @@
   
   .input {
     width: 100%;
-    padding: 12px;
+    min-width: 150px;
+    padding: 10px;
     margin-top: 2px;
     border: 1px solid #ccc;
     border-radius: 6px;
     font-size: 0.9rem;
     box-sizing: border-box;
   }
-  
+  .inputBanco {
+    width: 100%;
+    min-width: 240px;
+    padding: 10px;
+    margin-top: 2px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    box-sizing: border-box;
+  }
+  .inputAgencia {
+    width: 100%;
+    min-width: 80px;
+    padding: 10px;
+    margin-top: 2px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    box-sizing: border-box;
+  }
   .input:focus {
     border-color: #4caf50;
     outline: none;

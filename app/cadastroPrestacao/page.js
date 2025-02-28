@@ -1,6 +1,10 @@
 'use client';
 import { useState } from 'react';
 import './cadastroPrestacao.css'; // Certifique-se de que o caminho está correto
+import { PDFDownloadLink } from '@react-pdf/renderer';
+import ReciboPDF from "./reciboPDF";
+
+
 
 export default function Page() {
   const [cpfBusca, setCpfBusca] = useState('');
@@ -22,7 +26,7 @@ export default function Page() {
     const qtd = e.target.value;
     setQuantidade(qtd);
 
-    // Calcular o valor total
+    // Calcular o valor unitario
     if (valorUnitario && qtd) {
       setValorTotal(parseFloat(valorUnitario) * parseFloat(qtd));
     }
@@ -38,17 +42,19 @@ export default function Page() {
     }
   };
 
+
   return (
     <div className="container">
       <nav className="navbar">
-        <a href="/inicial" className="navItem">Home</a>
+        <a href="/cadastro" className="navItem">Home</a>
         <a href="/fornecedor" className="navItem">Agricultor(a)</a>
-        <a href="/cadastroDadosBancarios" className="navItem">Dados Bancários</a>
         <a href="/cadastroProduto" className="navItem">Produto</a>
-        <a href="/cadastroServico" className="navItem">Serviço</a>
+       
         <a href="/cadastroFornecimento" className="navItem">Fornecimento de Produto</a>
-        <a href="" className="navItem">Recibo</a>
-        <a href="#" className="navItem">Relatório</a>
+        {/*<a href="" className="navItem">Recibo</a>
+         <a href="/cadastroDadosBancarios" className="navItem">Dados Bancários</a>
+         <a href="/cadastroServico" className="navItem">Serviço</a>
+        <a href="#" className="navItem">Relatório</a>*/}
       </nav>
 
       {/* Formulário de Cadastro de Fornecimento */}
@@ -75,15 +81,15 @@ export default function Page() {
         <div className="formField buscaServicoContainer">
           <label htmlFor="servico" className="label">Serviço</label>
           <div className="inputIconContainer">
-            <input
-              type="text"
-              id="servico"
-              value={servico}
-              onChange={(e) => setServico(e.target.value)}
-              className="input"
-              placeholder="Digite o nome do serviço"
-            />
-            <span className="icon">🔍</span> {/* Ícone de Lupa */}
+          <select
+                id="text"
+                value={servico}
+                onChange={(e) => setUnidade(e.target.value)}
+                className="input"
+>               <option value="" disabled hidden>Escolha</option>
+                <option value="carga e descarga">Carga e descarga</option>
+                <option value="plantio">Plantio</option>
+            </select>
           </div>
         </div>
 
@@ -98,11 +104,12 @@ export default function Page() {
               onChange={handleQuantidadeChange}
               className="input"
               placeholder="Digite a quantidade"
+              min="1"
             />
             <select
                 id="text"
                 value={servico}
-                onChange={(e) => setUnidade(e.target.value)}
+                onChange={(e) => setServico(e.target.value)}
                 className="input"
 >               <option value="" disabled hidden>Escolha</option>
                 <option value="dia">Dia</option>
@@ -117,25 +124,31 @@ export default function Page() {
           <div className="valorUnitarioField">
             <label htmlFor="valorUnitario" className="label">Valor Unitário</label>
             <input
-              type="number"
+              type="text"
               id="valorUnitario"
               value={valorUnitario}
               onChange={handleValorUnitarioChange}
               className="input"
               placeholder="Digite o valor unitário"
+              min="1"
+              step="any" // Permite valores com casas decimais sem arredondamento
             />
           </div>
           <div className="valorTotalField">
-            <label htmlFor="valorTotal" className="label">Valor Total</label>
-            <input
-              type="text"
-              id="valorTotal"
-              value={valorTotal}
-              readOnly
-              className="input"
-              placeholder="Valor total"
-            />
-          </div>
+  <label htmlFor="valorTotal" className="label">Valor Total</label>
+  <input
+    type="text"
+    id="valorTotal"
+    value={valorTotal ? Number(valorTotal).toLocaleString('pt-PT', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) : '0,00'}
+    readOnly
+    className="input"
+    placeholder="Valor total"
+    min={1}
+    step="any"
+  />
+</div>
+
+
         </div>
 
         {/* Botões de Ação */}
@@ -143,6 +156,26 @@ export default function Page() {
           <button className="button">Confirmar</button>
           <button className="button buttonCorrigir">Corrigir</button>
         </div>
+
+        <div className="formActions">
+  <PDFDownloadLink
+    document={
+      <ReciboPDF
+        cpf={cpfBusca} 
+        servico={servico} 
+        quantidade={quantidade} 
+        unidade={unidade} 
+        valorUnitario={valorUnitario} 
+        valorTotal={valorTotal} 
+      />
+    }
+    fileName="recibo.pdf"
+     className="button buttonRecibo"
+  >
+    {({ loading }) => (loading ? 'Gerando Recibo...' : 'Gerar Recibo')}
+  </PDFDownloadLink>
+</div>
+
       </div>
     </div>
   );

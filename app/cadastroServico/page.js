@@ -41,14 +41,14 @@ export default function Page() {
   return (
     <div className="container">
       <nav className="navbar">
-        <a href="/inicial" className="navItem">Home</a>
+        <a href="/cadastro" className="navItem">Home</a>
         <a href="/fornecedor" className="navItem">Agricultor(a)</a>
-        <a href="cadastroDadosBancarios" className="navItem">Dados Bancários</a>
         <a href="/cadastroProduto" className="navItem">Produto</a>
         <a href="/cadastroFornecimento" className="navItem">Fornecimento de Produto</a>
-        <a href="" className="navItem">Prestação de Serviço</a>
-        <a href="#" className="navItem">Recibo</a>
-        <a href="#" className="navItem">Relatório</a>
+        <a href="cadastroPrestacao" className="navItem">Prestação de Serviço</a>
+        {/*<a href="#" className="navItem">Recibo</a>
+        <a href="cadastroDadosBancarios" className="navItem">Dados Bancários</a>
+        <a href="#" className="navItem">Relatório</a>*/}
       </nav>
 
       {/* Formulário de Cadastro de Fornecimento */}

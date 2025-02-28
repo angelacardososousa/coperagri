@@ -28,27 +28,26 @@ export default function Page() {
           <a href="/fornecedor">
             <button className="button buttonLightGreen">Agricultor(a)</button>
           </a>
-          <a href="/cadastroDadosBancarios">
-            <button className="button buttonLightGreen">Dados Bancários</button>
-          </a>
+         
           <a href="/cadastroProduto">
             <button className="button buttonGreen">Produto</button>
           </a>
-          <a href="/cadastroServico">
-            <button className="button buttonGreen">Serviço</button>
-          </a>
+         
           <a href="/cadastroFornecimento">
             <button className="button buttonDarkGreen">Fornecimento de Produto</button>
           </a>
           <a href="cadastroPrestacao">
             <button className="button buttonDarkGreen">Prestação de Serviço</button>
           </a>
-          <a href="">
+           {/*<a href="">
             <button className="button buttonLightGreen">Recibo</button>
+          </a>
+           <a href="/cadastroServico">
+            <button className="button buttonGreen">Serviço</button>
           </a>
           <a href="">
             <button className="button buttonLightGreen">Relatório</button>
-          </a>
+          </a>*/}
 
       </div>
       <br></br>

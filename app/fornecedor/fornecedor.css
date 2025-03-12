@@ -1,6 +1,7 @@
 * {
   font-family: 'Roboto', sans-serif;
 }
+
 /* Container principal */
 /* Container principal */
 .container {
@@ -8,32 +9,41 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  width: 100%; /* Certifique-se de que o contêiner principal ocupa toda a largura */
+  width: 100%;
+  /* Certifique-se de que o contêiner principal ocupa toda a largura */
   height: 100vh;
   background-color: #f7f8fa;
-  padding: 0px 15px;  /* Pode ajustar o padding se necessário */
+  padding: 0px 15px;
+  /* Pode ajustar o padding se necessário */
 }
 
 /* Barra de navegação */
 .navbar {
   display: flex;
-  justify-content: center; /* Centraliza os itens horizontalmente */
-  align-items: center;     /* Alinha os itens verticalmente no centro */
-  width: 100%;             /* Garante que a barra ocupe 100% da largura */
-  padding: 5px 0;         /* Ajusta o padding para a altura desejada */
+  justify-content: center;
+  /* Centraliza os itens horizontalmente */
+  align-items: center;
+  /* Alinha os itens verticalmente no centro */
+  width: 100%;
+  /* Garante que a barra ocupe 100% da largura */
+  padding: 5px 0;
+  /* Ajusta o padding para a altura desejada */
   background-color: #4caf50;
-  margin: 0;               /* Remove qualquer margem */
+  margin: 0;
+  /* Remove qualquer margem */
 }
 
 
 .navItem {
   color: white;
   font-size: 0.9rem;
-  font-weight: bold; 
-  text-decoration: none; 
-  margin: 0 10px;          /* Espaço entre os itens da navbar */
-  text-align: center;      /* Garante que o texto fique centralizado */
-} 
+  font-weight: bold;
+  text-decoration: none;
+  margin: 0 10px;
+  /* Espaço entre os itens da navbar */
+  text-align: center;
+  /* Garante que o texto fique centralizado */
+}
 
 .navItem:hover {
   text-decoration: underline;
@@ -42,7 +52,8 @@
 .buscaContainer {
   display: flex;
   align-items: center;
-  margin-left: 10;  /* Move o campo de busca para a direita */
+  margin-left: 10;
+  /* Move o campo de busca para a direita */
 }
 
 .inputBusca {
@@ -69,20 +80,26 @@
 /* Formulário */
 .formContainer {
   width: 100%;
-  max-width: 500px;  /* Reduzido o tamanho máximo */
+  max-width: 500px;
+  /* Reduzido o tamanho máximo */
   background-color: white;
-  padding: 30px;  /* Menos padding */
-  border-radius: 10px;  /* Bordas mais suaves */
+  padding: 30px;
+  /* Menos padding */
+  border-radius: 10px;
+  /* Bordas mais suaves */
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  margin-top: 30px;  /* Menos espaço acima */
+  margin-top: 30px;
+  /* Menos espaço acima */
   display: flex;
   flex-direction: column;
 }
 
 .titulo {
-  font-size: 1.6rem;  /* Fonte reduzida */
+  font-size: 1.6rem;
+  /* Fonte reduzida */
   color: #4caf50;
-  margin-bottom: 5px;  /* Menos espaço abaixo do título */
+  margin-bottom: 5px;
+  /* Menos espaço abaixo do título */
   text-align: center;
   margin-top: 0rem;
 }
@@ -90,28 +107,37 @@
 /* Contêiner para colocar os campos em linha */
 .formFieldRow {
   display: flex;
-  gap: 20px; /* Espaço entre os campos */
+  gap: 20px;
+  /* Espaço entre os campos */
 }
 
 /* Para garantir que os campos fiquem com a mesma largura e ocupem todo o espaço */
 .formField {
-  flex: 1; /* Ajusta para que cada campo ocupe uma proporção igual */
-  min-width: 150px; /* Largura mínima para cada campo */
+  flex: 1;
+  /* Ajusta para que cada campo ocupe uma proporção igual */
+  min-width: 150px;
+  /* Largura mínima para cada campo */
 }
 
 .label {
-  font-size: 1rem;  /* Fonte reduzida */
+  font-size: 1rem;
+  /* Fonte reduzida */
   color: #333;
-  margin-bottom: 3px;  /* Menos espaço abaixo do label */
+  margin-bottom: 3px;
+  /* Menos espaço abaixo do label */
 }
 
 .input {
   width: 100%;
-  padding: 12px;  /* Menos padding */
-  margin-top: 2px;  /* Menos espaço acima */
+  padding: 12px;
+  /* Menos padding */
+  margin-top: 2px;
+  /* Menos espaço acima */
   border: 1px solid #ccc;
-  border-radius: 6px;  /* Bordas mais suaves */
-  font-size: 0.9rem;  /* Fonte reduzida */
+  border-radius: 6px;
+  /* Bordas mais suaves */
+  font-size: 0.9rem;
+  /* Fonte reduzida */
   box-sizing: border-box;
 }
 
@@ -122,20 +148,27 @@
 
 .formActions {
   display: flex;
-  justify-content: center;  /* Centraliza os botões no contêiner */
-  gap: 10px;                /* Define o espaço entre os botões */
-  margin-top: 3px;         /* Mantém o espaçamento superior */
+  justify-content: center;
+  /* Centraliza os botões no contêiner */
+  gap: 10px;
+  /* Define o espaço entre os botões */
+  margin-top: 3px;
+  /* Mantém o espaçamento superior */
 }
 
 /* Botões menores */
 .button {
-  width: 40%; /* Reduz a largura dos botões */
-  padding: 8px; /* Reduz o padding para diminuir a altura */
-  font-size: 0.85rem; /* Reduz o tamanho da fonte */
+  width: 40%;
+  /* Reduz a largura dos botões */
+  padding: 8px;
+  /* Reduz o padding para diminuir a altura */
+  font-size: 0.85rem;
+  /* Reduz o tamanho da fonte */
   background-color: #4caf50;
   color: white;
   border: none;
-  border-radius: 5px; /* Bordas levemente arredondadas */
+  border-radius: 5px;
+  /* Bordas levemente arredondadas */
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
@@ -153,36 +186,119 @@
   background-color: #d32f2f;
 }
 
+/* Botão de voltar com cor reduzida */
+.buttonVoltar {
+  background-color: #d3b82f;
+}
+
+.buttonVoltar:hover {
+  background-color: #f6d842;
+}
 
 /* Melhorando a aparência dos campos */
 .input[type="text"],
 .input[type="tel"],
 .input[type="email"],
 .input[type="password"] {
-  font-size: 0.9rem;  /* Fonte reduzida */
-  line-height: 1.4;  /* Menor altura de linha */
+  font-size: 0.9rem;
+  /* Fonte reduzida */
+  line-height: 1.4;
+  /* Menor altura de linha */
 }
 
 .input::placeholder {
   color: #aaa;
 }
+
 .formFieldRow .formField {
-  flex-grow: 1; /* Faz os campos crescerem igualmente */
+  flex-grow: 1;
+  /* Faz os campos crescerem igualmente */
 }
 
 /* Estilos específicos para a linha de Rua e Número */
 .ruaNumeroRow {
   display: flex;
-  gap: 10px; /* Espaço entre Rua e Número */
+  gap: 10px;
+  /* Espaço entre Rua e Número */
 }
 
 .ruaNumeroRow .formField:nth-child(1) {
-  flex-grow: 2; /* Campo 'Rua' ocupa 2x o espaço */
+  flex-grow: 2;
+  /* Campo 'Rua' ocupa 2x o espaço */
 }
 
 .ruaNumeroRow .formField:nth-child(2) {
-  flex-grow: 1; /* Campo 'Número' ocupa 1x o espaço */
+  flex-grow: 1;
+  /* Campo 'Número' ocupa 1x o espaço */
 }
 
+input[type="number"] {
+  -moz-appearance: textfield;
+  /* Remove no Firefox */
+  appearance: textfield;
+  /* Padrão para navegadores modernos */
+}
 
-  
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.botao-label {
+  cursor: pointer;
+  background-color: #bcbfc4;
+  /* Cor de fundo */
+  padding: 8px 18px;
+  /* Espaçamento */
+  border-radius: 8px;
+  /* Bordas arredondadas */
+  color: black;
+  /* Cor do texto */
+  font-size: 0.85rem;
+  display: inline-block;
+  /* Permite que a label se comporte como um botão */
+  text-align: center;
+  /* Alinha o texto ao centro */
+  transition: background-color 0.3s;
+  /* Animação suave de troca de cor */
+}
+
+.botao-label:hover {
+  background-color: #a0aec0;
+  /* Cor ao passar o mouse */
+}
+
+.input-arquivo {
+  display: none;
+  /* Oculta o input de arquivo */
+}
+
+.file-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #ffffff; /* bg-gray-200 */
+  padding: 8px 16px;
+  border-radius: 8px;
+  margin-top: 8px;
+  border: 2px solid #484949;
+}
+
+.file-name {
+  color: #4a5568; /* text-gray-700 */
+}
+
+.remove-button {
+  color: #f56565; /* text-red-500 */
+  font-weight: bold;
+  font-size: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.remove-button:hover {
+  color: #c53030; /* Cor mais escura no hover */
+}

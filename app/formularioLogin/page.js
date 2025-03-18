@@ -16,6 +16,7 @@ export default function Page() {
 
   const toggleMostrarSenha = () => setMostrarSenha(!mostrarSenha);
 
+  
   const handleLogin = async (e) => {
     e.preventDefault();
 
@@ -25,8 +26,10 @@ export default function Page() {
       return;
     }
 
+    const url = "http://localhost:8080/users/login";
+
     try {
-      const resposta = await fetch("http://localhost:8080/users/login", {
+      const resposta = await fetch(url, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

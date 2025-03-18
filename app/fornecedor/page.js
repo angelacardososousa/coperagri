@@ -1,7 +1,7 @@
 'use client';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import { useState } from 'react';
+import { useState, useEffect } from "react";
 import './fornecedor.css'; // Certifique-se de que o caminho está correto
 
 export default function Page() {
@@ -19,10 +19,12 @@ export default function Page() {
   const [cidade, setCidade] = useState('');
   const [dapCaf, setDapCaf] = useState('');
   const [banco, setBanco] = useState('');
+  const [bancos, setBancos] = useState([]);
   const [agencia, setAgencia] = useState('');
   const [conta, setConta] = useState('');
   const [pix, setPix] = useState('');
   const [numeroConta, setNumeroConta] = useState('');
+  const [erro, setErro] = useState("");
   const [arquivo, setArquivo] = useState(null);
   const [showBancarioForm, setShowBancarioForm] = useState(false); // Controla a visibilidade do formulário bancário
   const [showCadastroForm, setShowCadastroForm] = useState(true); // Controla a visibilidade do formulário de cadastro
@@ -32,18 +34,52 @@ export default function Page() {
     setCpfBusca('');
   };
 
+  useEffect(() => {
+    const fetchBancos = async () => {
+
+      try {
+        const response = await fetch("http://localhost:8080/fornecedor/bancos"); // 🔹 Substitua pela URL correta
+        if (!response.ok) {
+          throw new Error("Erro ao buscar bancos");
+        }
+        const data = await response.json();
+        console.log(data);
+        setBancos(data); // 🔹 Atualiza o estado com os bancos retornados
+      } catch (error) {
+        console.error("Erro ao carregar bancos:", error);
+      }
+    };
+
+    fetchBancos();
+  }, []);
 
 
-  const handleConfirmar = () => {
+  const temCampoVazio = (obj) => {
+    return Object.values(obj).some(valor => {
+      for (let chave in obj) {
+        const valor = obj[chave];
+        if (valor === null || valor === undefined || valor === "") {
+          alert(`A propriedade "${chave}" tem um valor inválido`);
+          return true;
+        }
+      }
+      if (typeof valor === "object") return temCampoVazio(valor); // Verifica objetos aninhados
+      return false;
+    });
+  };
+
+
+  const handleConfirmar = async (e) => {
     // Lógica para confirmar o cadastro
+    e.preventDefault();
+
     const cadastroData = {
-      "id": 0,
       "nome": nomeCompleto,
       "cpf": cpf,
       "rg": rg,
       "telefone": telefone,
       "endereco": {
-        "id": 0,
+
         "rua": logradouro,
         "numero": numero,
         "bairro": bairro,
@@ -51,7 +87,7 @@ export default function Page() {
         "cep": cep
       },
       "dadosBancarios": {
-        "id": 0,
+
         "agencia": agencia,
         "conta": numeroConta,
         "tipo_conta": conta,
@@ -60,8 +96,37 @@ export default function Page() {
       },
       "caf_dap": dapCaf,
       "apelido": apelido,
-      "userId": 0
-    };
+      "userId": localStorage.getItem("userId")
+    }
+
+    if (temCampoVazio(cadastroData)) {
+      return;
+    }
+
+    const url = "http://localhost:8080/fornecedor/cadastrar";
+    const token = localStorage.getItem("token");
+
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          "Authorization": `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(cadastroData),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        alert(`A propriedade "${data.nome}" tem um valor inválido`);
+      } else {
+        setErro("Cadastro falhou. Verifique suas credenciais.");
+      }
+
+    } catch (error) {
+      console.error("Erro na requisição:", error);
+      setErro("Ocorreu um erro ao tentar realizar o cadastro.", error);
+    }
   };
 
   const handleCorrigir = () => {
@@ -306,13 +371,16 @@ export default function Page() {
                 className="input"
               >
                 <option value="" disabled hidden>Escolha o Banco</option>
-                <option value="Banco do Brasil">Banco do Brasil-001</option>
-                <option value="Itaú Unibanco">Itaú Unibanco-341</option>
-                <option value="Bradesco">Bradesco-237</option>
-                <option value="Caixa Econômica Federal">Caixa Econômica Federal-104</option>
-                <option value="Nubank">Nubank-260</option>
-                <option value="Inter">Inter-077</option>
-                <option value="Outro">Outro</option>
+
+                {bancos.length > 0 ? (
+                  bancos.map((bancoNome, index) => (
+                    <option key={index} value={bancoNome}>
+                      {bancoNome}
+                    </option>
+                  ))
+                ) : (
+                  <option disabled>Carregando bancos...</option>
+                )}
               </select>
 
               <input
